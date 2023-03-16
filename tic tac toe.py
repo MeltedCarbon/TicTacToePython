@@ -24,6 +24,7 @@ C2 = " "
 C3 = " "
 
 winState = 0
+x = 0
 spacesList = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
 usedSpacesList = []
             #  A1   B1   C1   A2   B2   C2   A3   B3   C3
@@ -128,18 +129,26 @@ def playRound():
             spaceValues[8] = "O"
     elif winState == 1:
         print("You win")
+        x = 1
         return
     elif winState == 2:
         print("Python wins")
+        x = 1
         return
 
     checkForWin()
     if winState == 1:
-        print("You win")
-        return
+        if x == 1:
+            return
+        else:
+            print("You win")
+            return
     elif winState == 2:
-        print("Python wins")
-        return
+        if x == 1:
+            return
+        else:
+            print("Python wins")
+            return
 
     board = str(f"""
         A   B    C
@@ -154,8 +163,6 @@ def playRound():
     print(board)
     playRound()
     
-
-
 def pythonPick():
     global pythonChoice
     pythonChoice = random.choice(spacesList)
@@ -165,41 +172,41 @@ def pythonPick():
         return
 
 def checkForWin():
+    global winState
     if A1 == "O" and B1 == "O" and C1 == "O":
-        winState == 1
+        winState = 1
     elif A2 == "O" and B2 == "O" and C2 == "O":
-        winState == 1
+        winState = 1
     elif A3 == "O" and B3 == "O" and C3 == "O":
-        winState == 1
+        winState = 1
     elif A1 == "O" and A2 == "O" and A3 == "O":
-        winState == 1
+        winState = 1
     elif B1 == "O" and B2 == "O" and B3 == "O":
-        winState == 1
+        winState = 1
     elif C1 == "O" and C2 == "O" and C3 == "O":
-        winState == 1
+        winState = 1
     elif A1 == "O" and B2 == "O" and C3 == "O":
-        winState == 1
+        winState = 1
     elif A3 == "O" and B2 == "O" and C1 == "O":
-        winState == 1
+        winState = 1
 
     elif A1 == "X" and B1 == "X" and C1 == "X":
-        winState == 2
+        winState = 2
     elif A2 == "X" and B2 == "X" and C2 == "X":
-        winState == 2
+        winState = 2
     elif A3 == "X" and B3 == "X" and C3 == "X":
-        winState == 2
+        winState = 2
     elif A1 == "X" and A2 == "X" and A3 == "X":
-        winState == 2
+        winState = 2
     elif B1 == "X" and B2 == "X" and B3 == "X":
-        winState == 2
+        winState = 2
     elif C1 == "X" and C2 == "X" and C3 == "X":
-        winState == 2
+        winState = 2
     elif A1 == "X" and B2 == "X" and C3 == "X":
-        winState == 2
+        winState = 2
     elif A3 == "X" and B2 == "X" and C1 == "X":
-        winState == 2
-
-    return winState
+        winState = 2
+    return winState and x
         
 
 playRound()
