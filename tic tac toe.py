@@ -85,8 +85,21 @@ def playRound():
             usedSpacesList.append("C3")
             spaceValues[8] = "O"
     else:
-        print("Improper space input")
+        print("Improper space input, you lose your turn")
 
+    global board
+    board = str(f"""
+        A   B    C
+        -----------
+    1 | {A1} | {B1} | {C1} |
+      | - | - | - |
+    2 | {A2} | {B2} | {C2} |
+      | - | - | - |
+    3 | {A3} | {B3} | {C3} |
+        -----------
+    """)
+
+    global x
     checkForWin()
 
     if winState == 0:
@@ -128,26 +141,20 @@ def playRound():
             usedSpacesList.append("C3")
             spaceValues[8] = "O"
     elif winState == 1:
-        print("You win")
-        x = 1
-        return
-    elif winState == 2:
-        print("Python wins")
-        x = 1
-        return
-
-    checkForWin()
-    if winState == 1:
         if x == 1:
             return
         else:
+            print(board)
             print("You win")
+            x = 1
             return
     elif winState == 2:
         if x == 1:
             return
         else:
+            print(board)
             print("Python wins")
+            x = 1
             return
 
     board = str(f"""
@@ -160,6 +167,23 @@ def playRound():
     3 | {A3} | {B3} | {C3} |
         -----------
     """)
+
+    checkForWin()
+    if winState == 1:
+        if x == 1:
+            return
+        else:
+            print(board)
+            print("You win")
+            return
+    elif winState == 2:
+        if x == 1:
+            return
+        else:
+            print(board)
+            print("Python wins")
+            return
+
     print(board)
     playRound()
     
