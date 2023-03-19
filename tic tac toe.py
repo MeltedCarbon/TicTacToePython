@@ -44,43 +44,43 @@ def playRound():
 
     userInput = input("Enter space to mark: ")
 
-    if userInput in usedSpacesList:
+    if userInput.upper() in usedSpacesList:
         print("Space already taken")
         playRound()
-    elif userInput in spacesList:
-        if userInput == (f'{A1=}'.split('=')[0]):
+    elif userInput.upper() in spacesList:
+        if userInput.upper() == (f'{A1=}'.split('=')[0]):
             A1 = "O"
             usedSpacesList.append("A1")
             spaceValues[0] = "O"
-        elif userInput == (f'{A2=}'.split('=')[0]):
+        elif userInput.upper() == (f'{A2=}'.split('=')[0]):
             A2 = "O"
             usedSpacesList.append("A2")
             spaceValues[3] = "O"
-        elif userInput == (f'{A3=}'.split('=')[0]):
+        elif userInput.upper() == (f'{A3=}'.split('=')[0]):
             A3 = "O"
             usedSpacesList.append("A3")
             spaceValues[6] = "O"
-        elif userInput == (f'{B1=}'.split('=')[0]):
+        elif userInput.upper() == (f'{B1=}'.split('=')[0]):
             B1 = "O"
             usedSpacesList.append("B1")
             spaceValues[1] = "O"
-        elif userInput == (f'{B2=}'.split('=')[0]):
+        elif userInput.upper() == (f'{B2=}'.split('=')[0]):
             B2 = "O"
             usedSpacesList.append("B2")
             spaceValues[4] = "O"
-        elif userInput == (f'{B3=}'.split('=')[0]):
+        elif userInput.upper() == (f'{B3=}'.split('=')[0]):
             B3 = "O"
             usedSpacesList.append("B3")
             spaceValues[7] = "O"
-        elif userInput == (f'{C1=}'.split('=')[0]):
+        elif userInput.upper() == (f'{C1=}'.split('=')[0]):
             C1 = "O"
             usedSpacesList.append("C1")
             spaceValues[2] = "O"
-        elif userInput == (f'{C2=}'.split('=')[0]):
+        elif userInput.upper() == (f'{C2=}'.split('=')[0]):
             C2 = "O"
             usedSpacesList.append("C2")
             spaceValues[5] = "O"
-        elif userInput == (f'{C3=}'.split('=')[0]):
+        elif userInput.upper() == (f'{C3=}'.split('=')[0]):
             C3 = "O"
             usedSpacesList.append("C3")
             spaceValues[8] = "O"
@@ -208,5 +208,4 @@ def checkForWin():
         winState = 2
     return winState and x
         
-
 playRound()
